@@ -1,26 +1,33 @@
-# Express Boilerplate!
+# Noteful API
 
-This is a boilerplate project used for starting new projects!
+API for Noteful client hosted at https://noteful-client-tawny.vercel.app/
 
-## Set up
+## Endpoints
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+### /api/notes
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+get request returns all notes
 
-## Scripts
+post adds note from body to list (requires note_name, content, and folder_id keys in body)
 
-Start the application `npm start`
+### /api/notes/:id
 
-Start nodemon for the application `npm run dev`
+get request returns note with matching id
 
-Run the tests `npm test`
+delete request deletes note with matching id (no data returned)
 
-## Deploying
+patch request accepts note body and updates note with matching id (requires note_name, content, and folder_id keys in body)
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+### /api/folders
+
+get request returns all folders
+
+post adds folder from body to list (requires folder_name key in body)
+
+### /api/folders/:id
+
+get returns folder with matching id
+
+delete request deletes folder with matchign id (no data returned)
+
+patch request accepts folder body and updates folder with matching id (requires folder_name key in body)
